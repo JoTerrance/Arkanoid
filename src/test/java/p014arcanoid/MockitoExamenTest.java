@@ -1,5 +1,7 @@
 package p014arcanoid;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Test;
@@ -11,24 +13,18 @@ import org.omg.CORBA.portable.InputStream;
 import org.omg.CosNaming.NamingContextExtPackage.AddressHelper;
 
 class MockitoExamenTest {
-	@Mock
-	AddressHelper helper;
-
-	@Mock
-	private TypeCode typeCode;
-
-	@Mock
-	private TypeCode typeCode2;
-
 	@Test
 	void testA() throws BadKind {
 		MockitoExamen examen = new MockitoExamen();
-		InputStream stream = Mockito.mock(InputStream.class);
-		when(helper.type()).thenReturn(typeCode);
+		InputStream stream = mock(InputStream.class);
+		TypeCode typeCode = mock(TypeCode.class);
+		TypeCode typeCode2 = mock(TypeCode.class);
+		mockStatic(AddressHelper.class);
+		when(AddressHelper.type()).thenReturn(typeCode);
 		when(typeCode.content_type()).thenReturn(typeCode2);
 		when(typeCode.default_index()).thenReturn(0);
 
-		examen.mockitoEj1(helper, stream);
+		examen.mockitoEj1(stream);
 	}
 
 

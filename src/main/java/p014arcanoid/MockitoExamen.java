@@ -9,15 +9,15 @@ public class MockitoExamen {
 	public MockitoExamen() {
 	}
 
-	public void mockitoEj1(AddressHelper helper, InputStream stream) throws BadKind {
-		/*
-		helper.read(stream);
-		if(helper.type().content_type().default_index()==0) {
+	public void mockitoEj1(InputStream stream) throws BadKind {
+		
+		AddressHelper.read(stream);
+		if(AddressHelper.type().content_type().default_index()==0) {
 			return;
 		}else {
 			throw new RuntimeException();
 		}
-		*/
+		
 		
 	}
 

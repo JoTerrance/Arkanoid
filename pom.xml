@@ -21,20 +21,13 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>5.11.0</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- AWT -->
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-subclass</artifactId>
-            <version>5.11.0</version>
-            <scope>test</scope>
-        </dependency>
+        <!-- Use Mockito inline to enable static mocking (Instrumentation-based) -->
+<dependency>
+    <groupId>org.mockito</groupId>
+    <artifactId>mockito-inline</artifactId>
+    <version>5.2.0</version>
+    <scope>test</scope>
+</dependency>
 
         <dependency>
             <groupId>org.mockito</groupId>
@@ -81,9 +74,6 @@
                 <configuration>
                     <argLine>@{argLine} -XX:+EnableDynamicAgentLoading -Xshare:off --add-opens java.desktop/java.awt=ALL-UNNAMED</argLine>
                     <!-- AWT -->
-                    <systemPropertyVariables>
-                        <org.mockito.plugins.MockMaker>mock-maker-subclass</org.mockito.plugins.MockMaker>
-                    </systemPropertyVariables>
 
                 </configuration>
             </plugin>

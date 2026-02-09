@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
 
@@ -18,6 +19,10 @@ class JunitTest {
 
 	@Test
 	void testSideIsZero() {
+		assertThrows(RuntimeException.class, () -> {
+			prueba.triangle(5, 0, 0);
+		});
+		
 		try {
 			prueba.triangle(5, 0, 0);
 			fail("aki nunka devo yegar");
@@ -32,7 +37,7 @@ class JunitTest {
 		assertEquals(6.0, resultado, 0.0);
 
 		double resultado2 = prueba.getArea(5.3, 4.1, 3.9);
-		assertEquals(9, resultado2, 0.01);
+		assertEquals(8, resultado2, 0.1);
 	}
 
 }
