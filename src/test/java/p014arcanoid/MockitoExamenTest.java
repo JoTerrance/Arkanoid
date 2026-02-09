@@ -21,7 +21,7 @@ class MockitoExamenTest {
 	private TypeCode typeCode2;
 
 	@Test
-	void test() throws BadKind {
+	void testA() throws BadKind {
 		MockitoExamen examen = new MockitoExamen();
 		InputStream stream = Mockito.mock(InputStream.class);
 		when(helper.type()).thenReturn(typeCode);
